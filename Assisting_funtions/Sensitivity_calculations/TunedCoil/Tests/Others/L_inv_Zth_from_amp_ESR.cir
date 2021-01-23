@@ -1,6 +1,0 @@
-L 0 1 Symbolic
-Rs_c1 1 2 Symbolic
-C1 2 3 Symbolic
-R_c2 3 4 Symbolic
-C2 4 0 Symbolic
-V1 3 0 Symbolic
