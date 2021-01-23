@@ -86,7 +86,7 @@ ub = [140 15 0.015 0.005*0.95]; % maximum [Number of loops per layer (N_v), Numb
  
 I find re-running the optimisation several times very useful (e.g., maxCount = 6;). As you may observe, there are several configurations that reach similar sensitivities. Some of them will be more practical to build. In my case, I pick the one that most closely matches commercial wires.
 
-The results from the optimisation will be displayed on Matlab's command window as they are being calculated. This results are stored under the object ProbeOpt. If you want to visualise one specific result you can by the function '''getProbeDetails(ProbeOpt(index),1)'''. You will need to give the index that corresponds to the coil you want to visualise, e.g., '''getProbeDetails(ProbeOpt(1,1,1),1)'''. This will visualise a set of useful plots and information, such as the noise contribution of each component (as shown in the paper).
+The results from the optimisation will be displayed on Matlab's command window as they are being calculated. This results are stored under the object ProbeOpt. If you want to visualise one specific result you can by the function "getProbeDetails(ProbeOpt(index),1)". You will need to give the index that corresponds to the coil you want to visualise, e.g., "getProbeDetails(ProbeOpt(1,1,1),1)". This will visualise a set of useful plots and information, such as the noise contribution of each component (as shown in the paper).
 
 Another option is to test certain configuration manually, which can be done by "CalcSensFromDesign(NrLoopsPerLayer,NrLayers,OutWireDiam,CoopDiam, AmplMode)". This is useful because it allows us testing configurations with off-the-shelf components in order to see if the sensitivity lost is significant as compared with the ideal ones.
 
@@ -95,4 +95,4 @@ Hope that the program helps you achieving the sensitivity you need for your appl
 Don't hesitate getting back to me if you have any question.
 
 ## For attribution, please cite this work as:
----Pellicer-Guridi, R., Vogel, M.W., Reutens, D.C. et al. Towards ultimate low frequency air-core magnetometer sensitivity. Sci Rep 7, 2269 (2017). https://doi.org/10.1038/s41598-017-02099-z---
+Pellicer-Guridi, R., Vogel, M.W., Reutens, D.C. et al. Towards ultimate low frequency air-core magnetometer sensitivity. Sci Rep 7, 2269 (2017). https://doi.org/10.1038/s41598-017-02099-z
