@@ -2,9 +2,9 @@
 A tool to design low frequency (> ~100 kHz) air-core magnetometers
 
 ## How to execute it
-The code is run by executing “Main_GA_Solver_flexible.m“ from MatLab.
+The code is run by executing "Main_GA_Solver_flexible.m" from MatLab.
 
-Please, adjust the parameters as needed. These parameters are defined in “setGlobalVariables.m" such that:
+Please, adjust the parameters as needed. These parameters are defined in "setGlobalVariables.m" such that:
 
 ```MatLab
 %% #############   General   ############################
@@ -68,15 +68,15 @@ tProbe.Amp.i_n_glob = 800e-15/sqrt(NrAmpParall);
 tProbe.Amp.e_OutStagNoise_glob = 90e-9*sqrt(NrAmpParall); % en_thermal(tProbe.Amp.Rf_glob);
 
 %% Visualise everything (not recomended)
-Visual_glob = 0; % Visualize every calculation? better set "graph" to 1 on “Main_GA_Solver_flexible.m“
+Visual_glob = 0; % Visualize every calculation? better set "graph" to 1 on "Main_GA_Solver_flexible.m"
 maxSweepCount = length(sweepOptions);
 ```
 
 ## Other adjustments
 
-An important parameter that may need to be adjusted is "tolerFun" in "Main_GA_Solver_flexible.m". I usually set it to one or two orders of magnitude smaller than the highest sensitivity I would expect from the detector. This basically tells the program: when your search doesn’t improve the sensitivity by more than that value for a while, stop searching. I would set it to 1e-15 in your case. While the optimisation algorithm is running you will see a doted plot being updated. The value you see under “Best�? is the highest mean sensitivity it has a found. If you set the “tolerFun�? too demanding, i.e., too small, the optimisation program may keep trying to search for a long time. You can stop it anytime by pressing on the “stop�? button shown on the lower left side of the plot window. The computer may need some time to react to this if you are using all your CPUs (parallel computing option).
+An important parameter that may need to be adjusted is "tolerFun" in "Main_GA_Solver_flexible.m". I usually set it to one or two orders of magnitude smaller than the highest sensitivity I would expect from the detector. This basically tells the program: when your search doesn't improve the sensitivity by more than that value for a while, stop searching. You can run the program once to get an estimate of what sensitivity you can expect. While the optimisation algorithm is running you will see a doted plot being updated. The value you see under "Best" is the highest mean sensitivity it has a found. If you set the "tolerFun" too demanding, i.e., too small, the optimisation program may keep trying to search for a long time. You can stop it anytime by pressing on the "stop" button shown on the lower left side of the plot window. The computer may need some time to react to this if you are using all your CPUs (parallel computing option).
 
-If you find the optimal values given by the program out of your available range, such as thinner wire than the one you can find, you will need to adjust the boundary conditions by changing in “Main_GA_Solver_flexible.m“:
+If you find the optimal values given by the program out of your available range, such as thinner wire than the one you can find, you will need to adjust the boundary conditions by changing in "Main_GA_Solver_flexible.m":
 ```MatLab
 % Vector of lower bounds
 lb = [1 1 0.00001 0.0001]; % minimum [Number of loops per layer (N_v), Number of layers (N_l), free space betwen wires (do-di)(the couting can be used some times to materialise this spacing), Wire cooper outer diameter (di)]
@@ -86,13 +86,13 @@ ub = [140 15 0.015 0.005*0.95]; % maximum [Number of loops per layer (N_v), Numb
  
 I find re-running the optimisation several times very useful (e.g., maxCount = 6;). As you may observe, there are several configurations that reach similar sensitivities. Some of them will be more practical to build. In my case, I pick the one that most closely matches commercial wires.
 
-The results from the optimisation will be displayed on Matlab’s command window as they are being calculated. This results are stored under the object ProbeOpt. If you want to visualise one specific result you can by the function “getProbeDetails(ProbeOpt(index),1)�?. You will need to give the index that corresponds to the coil you want to visualise, e.g., getProbeDetails(ProbeOpt(1,1,1),1). This will visualise a set of useful plots and information, such as the noise contribution of each component (as shown in the paper).
+The results from the optimisation will be displayed on Matlab's command window as they are being calculated. This results are stored under the object ProbeOpt. If you want to visualise one specific result you can by the function '''getProbeDetails(ProbeOpt(index),1)'''. You will need to give the index that corresponds to the coil you want to visualise, e.g., '''getProbeDetails(ProbeOpt(1,1,1),1)'''. This will visualise a set of useful plots and information, such as the noise contribution of each component (as shown in the paper).
 
-Another option is to test certain configuration manually, which can be done by “CalcSensFromDesign(NrLoopsPerLayer,NrLayers,OutWireDiam,CoopDiam, AmplMode)�?. This is useful because it allows us testing configurations with off-the-shelf components in order to see if the sensitivity lost is significant as compared with the ideal ones.
+Another option is to test certain configuration manually, which can be done by "CalcSensFromDesign(NrLoopsPerLayer,NrLayers,OutWireDiam,CoopDiam, AmplMode)". This is useful because it allows us testing configurations with off-the-shelf components in order to see if the sensitivity lost is significant as compared with the ideal ones.
 
 Hope that the program helps you achieving the sensitivity you need for your application.
 
-Don’t hesitate getting back to me if you have any question.
+Don't hesitate getting back to me if you have any question.
 
 ## For attribution, please cite this work as:
 ---Pellicer-Guridi, R., Vogel, M.W., Reutens, D.C. et al. Towards ultimate low frequency air-core magnetometer sensitivity. Sci Rep 7, 2269 (2017). https://doi.org/10.1038/s41598-017-02099-z---
