@@ -90,9 +90,7 @@ The results from the optimisation will be displayed on Matlab's command window a
 
 Another option is to test certain configuration manually, which can be done by "CalcSensFromDesign(NrLoopsPerLayer,NrLayers,OutWireDiam,CoopDiam, AmplMode)". This is useful because it allows us testing configurations with off-the-shelf components in order to see if the sensitivity lost is significant as compared with the ideal ones.
 
-Hope that the program helps you achieving the sensitivity you need for your application.
-
-Don't hesitate getting back to me if you have any question.
+Hope that the program helps you achieving the sensitivity you need for your application. Don't hesitate getting back to me if you have any question.
 
 ## For attribution, please cite this work as:
 *Pellicer-Guridi, R., Vogel, M.W., Reutens, D.C. et al. Towards ultimate low frequency air-core magnetometer sensitivity. Sci Rep 7, 2269 (2017). https://doi.org/10.1038/s41598-017-02099-z*
