@@ -45,17 +45,17 @@ exitflag = 10; % The 'ga' will overwrite this value to -1 when the optimization 
 if tProbe.Coil.discreteWire == 1
     A = [0 0 -100 1]; %  -100*do + 1*di <= 0 % To ensure a minimum insolation coating of 1%
     b = 0;    %0.03 is the value of Rmax    
-    IntCon = [1,2,3,4]; % Which variables are integer [N_v, N_l], Ruben2020 to search quicker    
-    lb = [1 1 1 1]; % minimum [Number of loops per layer (N_v), Number of layers (N_l), Wire outer diameter (do), Wire cooper outer diameter (di)] Ruben2020 to search quicker
-    ub = [140 15 50 50]; % maximum [Number of loops per layer (N_v), Number of layers (N_l), Wire outer diameter (do), Wire cooper outer diameter (di)] Ruben2020 to search quicker
+    IntCon = [1,2,3,4]; % All variables are integer, Ruben2020 to search quicker    
+    lb = [1 1 1 1]; % minimum [Number of loops per layer (N_v), Number of layers (N_l), free space betwen wires (do-di)(the couting can be used some times to materialise this spacing), Wire cooper outer diameter (di)] Ruben2020 to search quicker
+    ub = [140 15 50 50]; % maximum [Number of loops per layer (N_v), Number of layers (N_l), free space betwen wires (do-di)(the couting can be used some times to materialise this spacing), Wire cooper outer diameter (di)] Ruben2020 to search quicker
 else
     A = [0 0 -100 1]; %  -100*do + 1*di <= 0 % To ensure a minimum insolation coating of 1% Ruben 2020
     b = 0;    %0.03 is the value of Rmax
     IntCon = [1,2]; % Which variables are integer [N_v, N_l]
     % Vector of lower bounds
-    lb = [1 1 0.00001 0.0001]; % minimum [Number of loops per layer (N_v), Number of layers (N_l), Wire outer diameter (do), Wire cooper outer diameter (di)]
+    lb = [1 1 0.00001 0.0001]; % minimum [Number of loops per layer (N_v), Number of layers (N_l), free space betwen wires (do-di)(the couting can be used some times to materialise this spacing), Wire cooper outer diameter (di)]
     % Vector of upper bounds
-    ub = [140 15 0.015 0.005*0.95]; % maximum [Number of loops per layer (N_v), Number of layers (N_l), Wire outer diameter (do), Wire cooper outer diameter (di)] Lower bound on the change in the value of the objective function during a step
+    ub = [140 15 0.015 0.005*0.95]; % maximum [Number of loops per layer (N_v), Number of layers (N_l), free space betwen wires (do-di)(the couting can be used some times to materialise this spacing), Wire cooper outer diameter (di)] Lower bound on the change in the value of the objective function during a step
 end
 if tProbe.Coil.emfNear
     tolerFun = 1e-15;

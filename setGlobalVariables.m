@@ -72,7 +72,7 @@ tProbe.Amp.Camp_glob = 2e-12;
 tProbe.Amp.Ramp_glob = 60e6;
 tProbe.Amp.GainAmp_glob = 1000;
 tProbe.Amp.Rf_glob = 2*5000;
-% % NOISE
+% NOISE
 NrAmpParall = 1; % Number of amplifiers in parallel. Reduces voltage noise but increases current noise
 tProbe.Amp.e_n_glob = 1.3e-9/sqrt(NrAmpParall);
 tProbe.Amp.i_n_glob = 800e-15/sqrt(NrAmpParall);
