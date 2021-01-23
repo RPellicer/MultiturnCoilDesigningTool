@@ -95,4 +95,4 @@ Hope that the program helps you achieving the sensitivity you need for your appl
 Don't hesitate getting back to me if you have any question.
 
 ## For attribution, please cite this work as:
-Pellicer-Guridi, R., Vogel, M.W., Reutens, D.C. et al. Towards ultimate low frequency air-core magnetometer sensitivity. Sci Rep 7, 2269 (2017). https://doi.org/10.1038/s41598-017-02099-z
+*Pellicer-Guridi, R., Vogel, M.W., Reutens, D.C. et al. Towards ultimate low frequency air-core magnetometer sensitivity. Sci Rep 7, 2269 (2017). https://doi.org/10.1038/s41598-017-02099-z*
